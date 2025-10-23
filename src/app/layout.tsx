@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import CookieBanner from "@/components/CookieBanner";
 import ClarityLoader from "@/components/ClarityLoader";
-import Script from "next/script";
 import "./globals.css";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
