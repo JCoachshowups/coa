@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState, Suspense } from 'react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 const TALLY = 'https://tally.so/r/mKdr2V';
 
-export default function Navbar() {
+function NavbarContent() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const search = useSearchParams();
@@ -41,18 +41,18 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
       <div ref={navRef} className="mx-auto max-w-6xl px-4 h-24 md:h-32 overflow-hidden flex items-center justify-between">
         <div className="flex items-center">
-          <a href="/" className="flex items-center h-full">
+          <Link href="/" className="flex items-center h-full">
             {/* Behoud h-48 zoals gevraagd; optimaliseer LCP met eager + fetchPriority */}
             <img src="/logo.png" alt="Coach ShowUps" className="h-48 w-auto object-contain opacity-80" loading="eager" fetchPriority="high" />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop links */}
         <div className="hidden sm:flex items-center gap-4">
-          <a href="/#waarom" className="text-sm text-[#737373] hover:text-emerald-600">Waarom wij</a>
-          <a href="/#aanbod" className="text-sm text-[#737373] hover:text-emerald-600">Aanbod</a>
-          <a href="/#werkwijze" className="text-sm text-[#737373] hover:text-emerald-600">Werkwijze</a>
-          <a href="/#faq" className="text-sm text-[#737373] hover:text-emerald-600">FAQ</a>
+          <Link href="/#waarom" className="text-sm text-[#737373] hover:text-emerald-600">Waarom wij</Link>
+          <Link href="/#aanbod" className="text-sm text-[#737373] hover:text-emerald-600">Aanbod</Link>
+          <Link href="/#werkwijze" className="text-sm text-[#737373] hover:text-emerald-600">Werkwijze</Link>
+          <Link href="/#faq" className="text-sm text-[#737373] hover:text-emerald-600">FAQ</Link>
           <Link
             href={TALLY}
             data-clarity="cta-intake-nav"
@@ -82,10 +82,10 @@ export default function Navbar() {
         style={{ top: navTop }}
       >
         <div className="mx-auto max-w-6xl px-4 py-3 space-y-2">
-          <a href="/#waarom" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>Waarom wij</a>
-          <a href="/#aanbod" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>Aanbod</a>
-          <a href="/#werkwijze" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>Werkwijze</a>
-          <a href="/#faq" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>FAQ</a>
+          <Link href="/#waarom" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>Waarom wij</Link>
+          <Link href="/#aanbod" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>Aanbod</Link>
+          <Link href="/#werkwijze" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>Werkwijze</Link>
+          <Link href="/#faq" className="block text-[#737373] hover:text-emerald-600" onClick={() => setOpen(false)}>FAQ</Link>
           <Link
             href={TALLY}
             data-clarity="cta-intake-menu"
@@ -97,5 +97,13 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+  );
+}
+
+export default function Navbar() {
+  return (
+    <Suspense fallback={<nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur h-24 md:h-32" />}>
+      <NavbarContent />
+    </Suspense>
   );
 }
