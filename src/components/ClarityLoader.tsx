@@ -34,7 +34,7 @@ export default function ClarityLoader() {
 
     // Listen for consent changes
     function onConsent(e: Event) {
-      // @ts-ignore
+      // @ts-expect-error - Custom event detail type
       const status = e?.detail as string | undefined;
       if (status === 'accepted') {
         loadClarity();
