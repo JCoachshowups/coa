@@ -264,8 +264,8 @@ export default function Home() {
             Contact: <a className="underline" href="mailto:joey@coachshowups.com">joey@coachshowups.com</a>
           </div>
           <div className="mt-2 flex gap-4">
-            <a href="/privacy" className="underline hover:text-emerald-600">Privacy</a>
-            <a href="/voorwaarden" className="underline hover:text-emerald-600">Voorwaarden</a>
+            <Link href="/privacy" className="underline hover:text-emerald-600">Privacy</Link>
+            <Link href="/voorwaarden" className="underline hover:text-emerald-600">Voorwaarden</Link>
           </div>
         </div>
       </footer>
