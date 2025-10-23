@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Smooth scroll voor ankers (#aanbod etc.) */
+html { scroll-behavior: smooth; }
+
+/* Hover effect voor 'tekst ballonnen' (cards) overal op de site */
+.hover-cards .rounded-lg.border.bg-white.p-6.shadow-sm {
+  transition: background-color 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+.hover-cards .rounded-lg.border.bg-white.p-6.shadow-sm:hover {
+  background-color: rgb(209 250 229); /* tailwind emerald-100 */
+  border-color: rgb(236 253 245); /* tailwind emerald-50 */
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.12);
+}

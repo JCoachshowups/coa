@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ecfdf5"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" fill="#10b981">
+    <text x="80" y="220" font-size="68" font-weight="700">Coach ShowUps</text>
+    <text x="80" y="300" font-size="40" fill="#4b5563">10–15 gekwalificeerde show‑up calls</text>
+    <text x="80" y="350" font-size="40" fill="#4b5563">in 2–3 weken voor fitness coaches</text>
+  </g>
+  <rect x="80" y="400" width="520" height="90" rx="12" fill="#10b981" />
+  <text x="110" y="460" font-size="36" fill="#ffffff" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">Start intake • Pay‑per‑Meeting</text>
+</svg>
